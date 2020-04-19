@@ -68,6 +68,6 @@ func TestDefaultBeanFactory_AutoWire(t *testing. T) {
 
 ## Other inject libraries
 
-[facebook inject](https://github.com/facebookarchive/inject)
-[google wire](https://github.com/google/wire)
+* [facebook inject](https://github.com/facebookarchive/inject)
+* [google wire](https://github.com/google/wire)
 
