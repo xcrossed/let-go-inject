@@ -48,20 +48,20 @@ type Controll struct {
 
 func TestDefaultBeanFactory_AutoWire(t *testing. T) {
 
-	factoryBean := NewDefaultBeanFactory()
+	beanfactory := NewDefaultBeanFactory()
 	dao := &Dao{"my name is dao."}
-	factoryBean. RegisterBean(dao)
+	beanfactory. RegisterBean(dao)
 
 	biz := &biz{}
-	factoryBean. RegisterBeanWithName("biz.impl", biz)
+	beanfactory. RegisterBeanWithName("biz.impl", biz)
 	ctl := &Controll{}
-	factoryBean. RegisterBean(ctl)
-	factoryBean. AutoWire()
+	beanfactory. RegisterBean(ctl)
+	beanfactory. AutoWire()
 
 	assert. NotNil(t, biz. Dao)
 	assert. NotNil(t, ctl. Biz)
 	assert. Equal(t, dao, biz. Dao)
-	assert. Equal(t, ctl. Biz, biz)
+	assert. Equal(t, biz, ctl. Biz)
 
 }
 ```
