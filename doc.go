@@ -14,5 +14,4 @@
  * limitations under the License.
  */
 
-package let-go-inject
-
+package letGoInject
