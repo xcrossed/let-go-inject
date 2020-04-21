@@ -4,6 +4,10 @@ It is a simple dependency injection library for golang.
 Using it, you can make your code very simple and easy to maintain.
 Compared with other libraries, this is simpler
 
+## install
+
+go get https://github.com/xcrossed/let-go-inject
+
 ## feature
 
 * support struct inject
