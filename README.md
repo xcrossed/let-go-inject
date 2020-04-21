@@ -1,12 +1,18 @@
 # let-go-inject
 
-It is a simple dependency injection library for golang.
-Using it, you can make your code very simple and easy to maintain.
+It is a simple dependency injection library for golang. 
+Using it, you can make your code very simple and easy to maintain. 
 Compared with other libraries, this is simpler
 
 ## install
 
-go get https://github.com/xcrossed/let-go-inject
+no go mod support , you can go get. 
+
+``` 
+go get -u -v  github.com/xcrossed/let-go-inject
+```
+
+go mdo support, you can use it direct. 
 
 ## feature
 
@@ -18,55 +24,55 @@ go get https://github.com/xcrossed/let-go-inject
 
 * inject tag
 
+## demo code
+
 ``` go
+package main
+
+import (
+	"fmt"
+
+	"github.com/xcrossed/let-go-inject/inject"
+)
 
 type Dao struct {
-
 	Name string
-
 }
 
 type BizInterface interface {
-
 	SayHello(string)
-
 }
 
 type biz struct {
-
 	Dao *Dao `inject:""` 
-
 }
 
 func (biz *biz) SayHello(name string) {
 
-	fmt. Printf("say:%v\n", name)
+	fmt.Printf("say:%v\n", name)
 
 }
 
 type Controll struct {
-
 	Biz BizInterface `inject:"biz.impl"` 
-
 }
 
-func TestDefaultBeanFactory_AutoWire(t *testing. T) {
-
-	beanfactory := NewDefaultBeanFactory()
+func main() {
+	beanfactory := inject.NewDefaultBeanFactory()
 	dao := &Dao{"my name is dao."}
-	beanfactory. RegisterBean(dao)
+	beanfactory.RegisterBean(dao)
 
 	biz := &biz{}
-	beanfactory. RegisterBeanWithName("biz.impl", biz)
+	beanfactory.RegisterBeanWithName("biz.impl", biz)
 	ctl := &Controll{}
-	beanfactory. RegisterBean(ctl)
-	beanfactory. AutoWire()
+	beanfactory.RegisterBean(ctl)
+	beanfactory.AutoWire()
 
-	assert. NotNil(t, biz. Dao)
-	assert. NotNil(t, ctl. Biz)
-	assert. Equal(t, dao, biz. Dao)
-	assert. Equal(t, biz, ctl. Biz)
+	fmt.Println(biz.Dao == nil)
+	fmt.Println(ctl.Biz == nil)
 
+	fmt.Printf("equals:%v\n", dao == biz.Dao)
+	fmt.Printf("equals:%v\n", biz == ctl.Biz)
 }
 ```
 
@@ -75,4 +81,3 @@ func TestDefaultBeanFactory_AutoWire(t *testing. T) {
 * [go spring](https://github.com/go-spring)
 * [facebook inject](https://github.com/facebookarchive/inject)
 * [google wire](https://github.com/google/wire)
-

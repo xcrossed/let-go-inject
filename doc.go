@@ -15,3 +15,54 @@
  */
 
 package letGoInject
+
+/*
+// demo code
+package main
+
+import (
+	"fmt"
+
+	"github.com/xcrossed/let-go-inject/inject"
+)
+
+type Dao struct {
+	Name string
+}
+
+type BizInterface interface {
+	SayHello(string)
+}
+
+type biz struct {
+	Dao *Dao `inject:""`
+}
+
+func (biz *biz) SayHello(name string) {
+
+	fmt.Printf("say:%v\n", name)
+
+}
+
+type Controll struct {
+	Biz BizInterface `inject:"biz.impl"`
+}
+
+func main() {
+	beanfactory := inject.NewDefaultBeanFactory()
+	dao := &Dao{"my name is dao."}
+	beanfactory.RegisterBean(dao)
+
+	biz := &biz{}
+	beanfactory.RegisterBeanWithName("biz.impl", biz)
+	ctl := &Controll{}
+	beanfactory.RegisterBean(ctl)
+	beanfactory.AutoWire()
+
+	fmt.Println(biz.Dao == nil)
+	fmt.Println(ctl.Biz == nil)
+
+	fmt.Printf("equals:%v\n", dao == biz.Dao)
+	fmt.Printf("equals:%v\n", biz == ctl.Biz)
+}
+*/
