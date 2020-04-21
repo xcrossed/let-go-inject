@@ -30,7 +30,7 @@ type Bean struct {
 	Alias        string //bean alias
 }
 
-//BeanFactory 工厂bean
+//BeanFactory inteface
 type BeanFactory interface {
 	RegisterBean(instance interface{})
 	CanAutoWire() bool
@@ -48,6 +48,7 @@ type DefaultBeanFactory struct {
 
 var _ BeanFactory = &DefaultBeanFactory{}
 
+// NewDefaultBeanFactory init method
 func NewDefaultBeanFactory() *DefaultBeanFactory {
 	return &DefaultBeanFactory{
 		beanMap:      make(map[string]*Bean),
@@ -55,6 +56,7 @@ func NewDefaultBeanFactory() *DefaultBeanFactory {
 	}
 }
 
+// RegisterBean register a bean to factory
 func (defaultBeanFactory *DefaultBeanFactory) RegisterBean(instance interface{}) {
 	bean := defaultBeanFactory.createBean("", instance)
 	defaultBeanFactory.mutx.Lock()
@@ -79,6 +81,7 @@ func (defaultBeanFactory *DefaultBeanFactory) createBean(aliasName string, insta
 	return bean
 }
 
+// CanAutoWire check can autowire
 func (defaultBeanFactory *DefaultBeanFactory) CanAutoWire() bool {
 	if defaultBeanFactory.registeStatus == Initialize {
 		return true
@@ -107,6 +110,8 @@ func (defaultBeanFactory *DefaultBeanFactory) addToFactory(bean *Bean) {
 		}
 	}
 }
+
+// GetBeanByName get bean by name or alias name
 func (defaultBeanFactory *DefaultBeanFactory) GetBeanByName(beanName string) (*Bean, error) {
 	// alias bean name
 	if trueBeanName, ok := defaultBeanFactory.beanAliasMap[beanName]; ok {
@@ -120,7 +125,7 @@ func (defaultBeanFactory *DefaultBeanFactory) GetBeanByName(beanName string) (*B
 	return nil, NotExistBeanError
 }
 
-// finish to inject
+// AutoWire finish to inject
 func (defaultBeanFactory *DefaultBeanFactory) AutoWire() error {
 	defaultBeanFactory.mutx.Lock()
 	defer defaultBeanFactory.mutx.Unlock()
