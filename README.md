@@ -78,6 +78,8 @@ func main() {
 
 ## Other inject libraries
 
-* [go spring](https://github.com/go-spring)
 * [facebook inject](https://github.com/facebookarchive/inject)
 * [google wire](https://github.com/google/wire)
+* [go spring](https://github.com/go-spring)
+
+
