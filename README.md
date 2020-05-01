@@ -8,7 +8,7 @@
 
 It is a simple dependency injection library for golang. 
 Using it, you can make your code very simple and easy to maintain. 
-Compared with other libraries, this is simpler
+Compared with other libraries, this is simpler.
 
 ## install
 
@@ -87,6 +87,8 @@ func main() {
 * [facebook inject](https://github.com/facebookarchive/inject)
 * [google wire](https://github.com/google/wire)
 * [go spring](https://github.com/go-spring)
+
+
 
 
 
