@@ -1,5 +1,11 @@
 # let-go-inject
 
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/xcrossed/let-go-inject)](https://goreportcard.com/report/github.com/xcrossed/let-go-inject)
+[![GoDoc](https://godoc.org/github.com/xcrossed/let-go-inject?status.svg)](https://godoc.org/github.com/xcrossed/let-go-inject/inject)
+[![Release](https://img.shields.io/github/v/release/xcrossed/let-go-inject.svg?style=flat-square)](https://github.com/gin-gonic/gin/releases)
+[![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/xcrossed/let-go-inject?a=1	)](https://www.tickgit.com/browse?repo=github.com/xcrossed/let-go-inject)
+
 It is a simple dependency injection library for golang. 
 Using it, you can make your code very simple and easy to maintain. 
 Compared with other libraries, this is simpler
@@ -81,5 +87,51 @@ func main() {
 * [facebook inject](https://github.com/facebookarchive/inject)
 * [google wire](https://github.com/google/wire)
 * [go spring](https://github.com/go-spring)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

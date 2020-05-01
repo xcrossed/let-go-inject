@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package letGoInject
+package letGoInject // import "github.com/xcrossed/let-go-inject/inject"
 
 /*
 // demo code
