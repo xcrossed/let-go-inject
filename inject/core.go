@@ -16,9 +16,9 @@ var AutoWireFinishedError = errors.New("autowire is finish,can not autowire")
 type RegisteStatus uint
 
 const (
-	Initialize RegisteStatus = iota
-	Registeing
-	InjectFinished
+	Initialize     RegisteStatus = iota //initialize status
+	Registeing                          // regeisteing
+	InjectFinished                      // Inject finished
 )
 
 // Bean
@@ -26,8 +26,8 @@ type Bean struct {
 	UniqueName   string // bean global unique name
 	BeanType     reflect.Type
 	BeanValue    reflect.Value
-	BeanInstance interface{}
-	Alias        string //bean alias
+	BeanInstance interface{} // instance
+	Alias        string      //bean alias
 }
 
 //BeanFactory inteface
