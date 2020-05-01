@@ -33,20 +33,20 @@ type Bean struct {
 //BeanFactory inteface
 type BeanFactory interface {
 	RegisterBean(instance interface{})
-	CanAutoWire() bool
-	RegisterBeanWithName(aliasName string, instance interface{})
-	GetBeanByName(beanName string) (*Bean, error)
-	AutoWire() error
+	CanAutoWire() bool                                           // check if can autowire
+	RegisterBeanWithName(aliasName string, instance interface{}) // registe with alias name
+	GetBeanByName(beanName string) (*Bean, error)                //get bean by name
+	AutoWire() error                                             // finish bean inject
 }
 
 type DefaultBeanFactory struct {
-	beanMap       map[string]*Bean
-	beanAliasMap  map[string]string
-	registeStatus RegisteStatus
-	mutx          sync.Mutex
+	beanMap       map[string]*Bean  // bean map
+	beanAliasMap  map[string]string // bean alias bean map
+	registeStatus RegisteStatus     //regeiste status
+	mutx          sync.RWMutex      //sync.mutx
 }
 
-var _ BeanFactory = &DefaultBeanFactory{}
+var _ BeanFactory = &DefaultBeanFactory{} //static check
 
 // NewDefaultBeanFactory init method
 func NewDefaultBeanFactory() *DefaultBeanFactory {
